@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Asim's Heart ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html, body{
+    overflow-x:hidden;   /* only block sideways scroll */
+    overflow-y:auto;     /* allow vertical */
+    height:100%;
+    width:100%;
+}
+
+/* ===== PAGE SYSTEM ===== */
+.page{
+    position:absolute;
+    width:100%;
+    min-height:100%;
+    top:0;
+    left:0;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+    color:white;
+    opacity:0;
+    transform:translateX(100%);
+    transition:0.6s ease;
+    justify-content: center;   /* default centering */
+    align-items: center;
+    height: 100%;             /* only pages that need full screen */
+}
+
+.page.active{
+    opacity:1;
+    transform:translateX(0);
+}
+
+/* ===== COLORS ===== */
+.sunset{ background:linear-gradient(135deg,#ff9966,#ff5e62); }
+.paper{ background:#fff5ec; color:#333; }
+.final{ background:#111; }
+
+/* ===== TEXT ===== */
+h1{ margin-bottom:20px; font-size:28px; }
+p{ font-size:17px; line-height:1.6; margin-bottom:20px; }
+
+/* ===== BUTTON ===== */
+button{
+    padding:10px 22px;
+    margin:8px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#ff6b81;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* ===== HEART ANIMATION ===== */
+.heart{
+    font-size:60px;
+    animation:beat 1s infinite;
+}
+@keyframes beat{
+    50%{ transform:scale(1.3); }
+}
+
+/* ===== VIDEO ===== */
+video{
+    width:90%;
+    max-width:400px;
+    border-radius:15px;
+}
+
+/* ===== TEXT EFFECTS ===== */
+.big{
+    font-size:32px;
+    text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+.bgVideo{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+    pointer-events:none;
+}
+
+.content{
+    position:relative;
+    z-index:2;
+}
+
+.highlight{
+    font-size:26px;
+    font-weight:bold;
+    background:rgba(84, 62, 62, 0.65);
+    padding:15px 25px;
+    border-radius:15px;
+    display:inline-block;
+    text-shadow:0 0 8px rgba(255, 0, 0, 0.6);
+    max-width:100%;
+}
+
+/* ===== PAGE 1 ===== */
+#p1{
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("page 1.jpg") center/cover no-repeat;
+}
+
+#p2{
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("page-2.jpg") center/cover no-repeat;
+}
+
+#p3{
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("page-3.png") center/cover no-repeat;
+}
+
+
+/* ===== PAGE 4 (love letter) ===== */
+#p4{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:left;
+    color:white;
+    padding:40px 20px;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("love latter.png") center/cover no-repeat;
+}
+
+#p4 .letterBox{
+    max-width:600px;
+    width:100%;
+    background:rgba(255,255,255,0.12);
+    padding:24px 28px;
+    border-radius:20px;
+    backdrop-filter: blur(6px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== PAGE 6 (final letter) ===== */
+#p6{
+    overflow-y:auto;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    height:auto;
+    min-height:100%;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px){
+    .page{ padding:18px; }
+    h1{ font-size:22px; }
+    p{ font-size:15px; line-height:1.5; }
+    .heart{ font-size:48px; }
+    .highlight{ font-size:19px; padding:12px 16px; }
+    .big{ font-size:24px; padding:12px 18px; }
+    button{ padding:9px 18px; font-size:14px; }
+    #p4 .letterBox{ padding:18px 20px; }
+    video{ width:95%; }
+}
+
+@media (max-width: 380px){
+    h1{ font-size:19px; }
+    p{ font-size:14px; }
+    .highlight{ font-size:16px; }
+    .big{ font-size:20px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio id="music" loop>
+    <!-- add your music file later -->
+</audio>
+
+<!-- 1 -->
+<div class="page active" id="p1">
+    <h1>Welcome to Faran's Heart ❤️</h1>
+    <p>Are you the cutest wife of Faran?</p>
+    <div>
+        <button onclick="go(3)">Yes</button>
+        <button onclick="go(2)">No</button>
+    </div>
+</div>
+
+<!-- 2 Funny -->
+<div class="page final" id="p2">
+    <h1>Oops 😜</h1>
+    <p>You are lying...<br>Only YOU live in this heart ❤️</p>
+    <button onclick="go(1)">Back</button>
+</div>
+
+<!-- 3 -->
+<div class="page final" id="p3">
+    <div class="heart">❤️</div>
+    <p class="highlight">You entered my heart forever...</p>
+    <button onclick="go(4)">Next</button>
+</div>
+
+<!-- 4 Love Letter -->
+<div class="page" id="p4">
+    <div class="letterBox">
+        <h1>My Love Letter 💌</h1>
+        <p>
+            My love Gulabo 💖 <br><br>
+            You are the most beautiful girl in my eyes. I love you today the same way I loved you one year ago and even more than before. You are my eyes, my star, my everything, and you will remain so until my last breath. That is why I gave you the name Gulabo, because you are my life until death 🌹
+            <br><br>
+            I know sometimes you feel I have changed or that I don't love you the same. But the truth is I love you more every day than I did before. If I had changed, then why would I spend nights just to make you happy? Why would I make a separate website just to wish you on your birthday? 😘
+            <br><br>
+            One thing is true forever. I was in love. I am in love. And I will love you forever. Today marks almost 3 years that we are together, and my heart still beats only for you. Your lips still attract me just like our first kiss 💋
+            <br><br>
+            I love you more than words can say and more than you will ever know ❤️
+            <br><br>
+            Yours forever<br>Faran
+        </p>
+        <button onclick="go(5)">Next</button>
+    </div>
+</div>
+
+<!-- 5 Fireworks -->
+<div class="page final" id="p5">
+    <!-- Background video -->
+    <video autoplay muted loop playsinline class="bgVideo">
+        <source src="fireworks.mp4" type="video/mp4">
+    </video>
+
+    <!-- Content above video -->
+    <div class="content">
+        <h1 class="big">🎂 Happy Birthday My Love Gulabo 🎂</h1>
+        <button onclick="go(6)">Next ❤️</button>
+    </div>
+</div>
+
+<!-- 6 Final Letter -->
+<div class="page paper" id="p6">
+    <h1>For You Gulabo ❤️</h1>
+    <p>
+       Happy birthday gulabo 🥳🥳!!! 
+Tho hara birthday chey R c Allah Pak o tho Ami Abu Dera shukurya Ada Kao chey tha ye R ta peido ye☺️☺️ ho SIRF dagha urez na past har yo second mo pora dasy special wo o mehsha ya hamesha insha'Allah degh na Der kimati way v😌😌.... Mo hamesha koshish Kara da chey tho tha ma hwashee Der Di o pe da na way Dera Der Kao. Allah Pak da mizh ta degh Shai urezy o hwashee urezay hamesha rokawii♥️♥️. Der Maza way ye karya wa chey yo zoi ma celebrate karya wa ho chalo insha'Allah degha time way ya roshe. Allah Pak da Ko Ter kol mizh Ker sha manao KO😁😁😁. Yo Zal bia tho da urez Dera Dera Mubarak sha♥️♥️♥️. Emoji gila dey wa s ma tha use kra😂😘.
+Ato Zrha Tukrha Faran!!
+    </p>
+</div>
+
+<script>
+function go(num){
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("p"+num).classList.add("active");
+
+    // play music when story starts
+    if(num === 3){
+        var music = document.getElementById("music");
+        if (music.src) { music.play(); }
+    }
+}
+</script>
+
+</body>
+</html>
